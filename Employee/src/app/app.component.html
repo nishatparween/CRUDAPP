@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>CRUD APPLICATION</h1>
+  <div class="employee-container">
+    <div class="employee-form">
+      <form #form="ngForm" (ngSubmit)="onSubmit()"> 
+        <div class="form-group">
+          <label for="">Employee Name</label>
+          <input type="text" name="employeeName" [(ngModel)]="employee.employeeName">
+        </div>
+        <div class="form-group">
+          <label for="">Department</label>
+          <input type="text" name="department" [(ngModel)]="employee.department">
+        </div>
+        <div class="form-group form-group-inline">
+          <label for="">Joining Date</label>
+          <input type="text" name="joiningdate" [(ngModel)]="employee.joiningDate">
+        </div>
+        <div class="form-group">
+          <button>Submit</button>
+        </div>
+      </form>
+    </div>
+    <div class="employee-grid">
+      <div class="employee-row" *ngFor="let employee of employees">
+        <div class="employee-row-details"(click)="EditForm(employee)">
+          <span>{{employee.employeeName}}</span>
+          <span>{{employee.department}}</span>
+        </div>
+        <div class="employee-row-action">
+          <a (click)="deleteEmployee(employee.employeeID)"><i class="fa-solid fa-trash-can"></i></a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
